@@ -596,13 +596,14 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     .hero-grid, .risk-inner { grid-template-columns: 1fr; }
-    .hero-right-col { display: none; }
     .proof-grid { grid-template-columns: 1fr; }
     .proof-visual-row { grid-template-columns: 1fr; }
     .benefits-grid { grid-template-columns: 1fr; }
     .hiw-steps { grid-template-columns: repeat(2, 1fr); }
     .hiw-steps::before { display: none; }
     .faq-grid { grid-template-columns: 1fr; }
+    .hero-right-col { display: flex; }
+    .hero-image-wrap img { height: 280px; }
   }
     
   @media (max-width: 600px) {
@@ -625,6 +626,9 @@
     }
     .nav-phone {
       font-size: 1.25rem;
+    }
+    .hero-right-col {
+      display: flex;
     }
   }
 </style>
