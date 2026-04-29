@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>In-Home Senior Care in Everett, WA | Visiting Angels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-light: #2C6EB7;
+    --blue-dark: #193E6E;
+    --accent: #74CBC9;
+    --gray-light: #EAEAE8;
+    --btn-gold: #D9A900;
+    --btn-gold-hover: #c49800;
+    --white: #ffffff;
+    --text-dark: #1a1a2e;
+    --text-mid: #4a4a6a;
+    --text-muted: #7a7a9a;
+    --shadow-soft: 0 4px 24px rgba(25,62,110,0.10);
+    --shadow-card: 0 8px 40px rgba(25,62,110,0.13);
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-dark);
+    background: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── UTILITY ─── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .btn-gold {
+    display: inline-block;
+    background: var(--btn-gold);
+    color: #fff;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 18px 40px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(217,169,0,0.35);
+  }
+  .btn-gold:hover { background: var(--btn-gold-hover); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(217,169,0,0.45); }
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--blue-light);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 50px;
+    border: 2px solid var(--blue-light);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--blue-light); color: #fff; }
+  .section-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    color: var(--blue-dark);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 1.1rem;
+    color: var(--text-mid);
+    max-width: 620px;
+    margin-bottom: 40px;
+  }
+
+  /* ─── TOP BAR ─── */
+  .topbar {
+    background: var(--blue-dark);
+    color: #fff;
+    text-align: center;
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .topbar span { color: var(--btn-gold); font-weight: 700; }
+
+  /* ─── NAV ─── */
+  nav {
+    background: #2C6EB7;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(25,62,110,0.2);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .nav-logo img { height: 48px; }
+  .nav-cta { display: flex; align-items: center; gap: 16px; }
+  .nav-phone {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.35rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-phone::before { content: "📞"; font-size: 1rem; }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, #f0f6ff 0%, #e8f4f8 60%, #d4eef0 100%);
+    padding: 64px 0 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(116,203,201,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .hero-badge {
+    background: var(--blue-dark);
+    color: #fff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 50px;
+  }
+  .hero-location {
+    color: var(--text-mid);
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 900;
+    color: var(--blue-dark);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .hero h1 em { color: var(--blue-light); font-style: normal; }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+  .hero-sub strong { color: var(--blue-dark); }
+  .hero-cta-group { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+  .hero-cta-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-cta-note::before { content: "✓"; color: var(--accent); font-weight: 800; }
+  .trust-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.85rem;
+    font-weight: 900;
+    color: var(--text-mid);
+  }
+  .trust-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .hero-image-wrap {
+    position: relative;
+    overflow: hidden;
+    box-shadow: none;
+  }
+  .hero-right-col .hero-image-wrap {
+    margin-bottom: 0;
+    border-radius: 20px 20px 20px 20px;
+  }
+  .hero-right-col .hero-cta-group {
+    background: #fff;
+    border-radius: 20px 20px 20px 20px;
+    padding: 20px 24px 24px;
+    box-shadow: 0 8px 40px rgba(25,62,110,0.13);
+    margin-bottom: 0;
+  }
+  .hero-right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .hero-image-placeholder {
+    background: linear-gradient(145deg, #d4e8f5, #b8d8e8);
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-image-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232C6EB7' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-scene {
+    text-align: center;
+    z-index: 1;
+  }
+  .hero-scene-icon { font-size: 5rem; margin-bottom: 12px; display: block; }
+  .hero-scene-text {
+    font-size: 0.85rem;
+    color: var(--blue-dark);
+    font-weight: 900;
+    opacity: 0.7;
+    font-style: italic;
+  }
+  .hero-overlay-card {
+    position: absolute;
+    bottom: 20px; left: 20px;
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    box-shadow: var(--shadow-card);
+    min-width: 200px;
+  }
+  .hero-overlay-card .stat { font-size: 1.6rem; font-weight: 900; color: var(--blue-light); font-family: 'DM Sans', sans-serif; }
+  .hero-overlay-card .stat-label { font-size: 0.8rem; color: var(--text-mid); font-weight: 500; }
+  .hero-stars { color: #f5a623; font-size: 1.1rem; letter-spacing: 2px; }
+
+  /* ─── STATS BAND ─── */
+  .stats-band {
+    background: var(--blue-dark);
+    padding: 36px 0;
+  }
+  .stats-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--btn-gold);
+    display: block;
+    line-height: 1;
+  }
+  .stat-desc { color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-top: 4px; }
+
+  /* ─── PROOF / TESTIMONIALS ─── */
+  .proof-section { padding: 80px 0; background: #fff; }
+  .proof-intro { text-align: center; margin-bottom: 52px; }
+  .proof-intro .section-sub { margin: 0 auto; }
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .proof-card {
+    background: #f7f9fc;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+  .proof-card:hover { box-shadow: var(--shadow-card); }
+  .proof-card::before {
+    content: '"';
+    position: absolute;
+    top: 16px; left: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 4rem;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0.4;
+  }
+  .proof-result {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--blue-light), var(--accent));
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .proof-quote { font-size: 0.97rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 18px; padding-top: 10px; }
+  .proof-author { display: flex; align-items: center; gap: 10px; }
+  .proof-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .proof-name { font-weight: 700; font-size: 0.9rem; color: var(--blue-dark); }
+  .proof-role { font-size: 0.8rem; color: var(--text-muted); }
+  .proof-stars { color: #f5a623; font-size: 0.9rem; }
+  .proof-visual-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .proof-visual-card {
+    background: linear-gradient(135deg, #f0f6ff, #e4f4f3);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #d4e8f0;
+  }
+  .proof-visual-icon { font-size: 2.8rem; flex-shrink: 0; }
+  .proof-visual-text strong { display: block; font-size: 1rem; color: var(--blue-dark); font-weight: 700; margin-bottom: 4px; }
+  .proof-visual-text span { font-size: 0.88rem; color: var(--text-mid); }
+
+  /* ─── BENEFITS ─── */
+  .benefits-section { padding: 80px 0; background: var(--gray-light); }
+  .benefits-intro { text-align: center; margin-bottom: 52px; }
+  .benefits-intro .section-sub { margin: 0 auto; }
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .benefit-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 32px 26px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 4px solid transparent;
+  }
+  .benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); border-top-color: var(--accent); }
+  .benefit-icon { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+  .benefit-title { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 900; color: var(--blue-dark); margin-bottom: 10px; }
+  .benefit-desc { font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; }
+  .benefit-outcome { margin-top: 14px; font-size: 0.85rem; font-weight: 700; color: var(--blue-light); }
+
+  /* ─── HOW IT WORKS ─── */
+  .hiw-section { padding: 80px 0; background: #fff; }
+  .hiw-intro { text-align: center; margin-bottom: 56px; }
+  .hiw-intro .section-sub { margin: 0 auto; }
+  .hiw-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    position: relative;
+  }
+  .hiw-steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: calc(12.5%);
+    width: calc(75%);
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--blue-light));
+    z-index: 0;
+  }
+  .hiw-step { text-align: center; position: relative; z-index: 1; }
+  .hiw-num {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 4px 16px rgba(44,110,183,0.3);
+  }
+  .hiw-step-title { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--blue-dark); margin-bottom: 8px; }
+  .hiw-step-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+  .hiw-time { font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-top: 8px; }
+  .hiw-cta { text-align: center; margin-top: 48px; }
+
+  /* ─── RISK REVERSAL ─── */
+  .risk-section {
+    padding: 72px 0;
+    background: linear-gradient(135deg, var(--blue-dark) 0%, #0f2a50 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .risk-section::before {
+    content: '';
+    position: absolute;
+    right: -100px; top: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(116,203,201,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .risk-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .risk-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+  .risk-title span { color: var(--accent); }
+  .risk-sub { color: rgba(255,255,255,0.75); font-size: 1.05rem; line-height: 1.7; margin-bottom: 32px; }
+  .guarantee-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(116,203,201,0.3);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+  .guarantee-box h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.3rem;
+    color: var(--btn-gold);
+    margin-bottom: 14px;
+  }
+  .guarantee-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+  }
+  .guarantee-check { color: var(--accent); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+  .trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .trust-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ─── FAQ ─── */
+  .faq-section { padding: 80px 0; background: var(--gray-light); }
+  .faq-intro { text-align: center; margin-bottom: 48px; }
+  .faq-intro .section-sub { margin: 0 auto; }
+  .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .faq-item {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 28px 26px;
+    box-shadow: var(--shadow-soft);
+  }
+  .faq-q { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 900; color: var(--blue-dark); margin-bottom: 10px; }
+  .faq-a { font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; }
+
+  /* ─── FINAL CTA ─── */
+  .final-cta {
+    padding: 96px 0;
+    background: linear-gradient(160deg, #f0f6ff 0%, #e4f4f3 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(44,110,183,0.07) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+  .final-cta-inner { position: relative; z-index: 1; }
+  .final-cta h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: var(--blue-dark);
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .final-cta h2 em { color: var(--blue-light); font-style: normal; }
+  .final-cta-sub { font-size: 1.15rem; color: var(--text-mid); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+  .final-cta-extras {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    font-size: 0.88rem;
+    font-weight: 900;
+    color: var(--text-mid);
+  }
+  .final-cta-extra { display: flex; align-items: center; gap: 6px; }
+  .final-cta-extra::before { content: "✓"; color: var(--blue-light); font-weight: 800; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--blue-dark);
+    color: rgba(255,255,255,0.65);
+    padding: 32px 0;
+    text-align: center;
+    font-size: 0.88rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer strong { color: #fff; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-copy > * { animation: fadeUp 0.6s ease both; }
+  .hero-copy > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-copy > *:nth-child(2) { animation-delay: 0.15s; }
+  .hero-copy > *:nth-child(3) { animation-delay: 0.25s; }
+  .hero-copy > *:nth-child(4) { animation-delay: 0.35s; }
+  .hero-copy > *:nth-child(5) { animation-delay: 0.45s; }
+  .hero-image-wrap { animation: fadeUp 0.7s 0.2s ease both; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero-grid, .risk-inner { grid-template-columns: 1fr; }
+    .hero-right-col { display: none; }
+    .proof-grid { grid-template-columns: 1fr; }
+    .proof-visual-row { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .hiw-steps { grid-template-columns: repeat(2, 1fr); }
+    .hiw-steps::before { display: none; }
+    .faq-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>Everett, WA Families:</span> Care can begin within days of your free consultation — no long-term contracts required.
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="https://www.visitingangels.com/franchise/images/america's-visiting-angels.svg" alt="Visiting Angels" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-family:Playfair Display,serif;font-weight:800;font-size:1.3rem;color:#193E6E\'>Visiting Angels</span>'">
+    </div>
+    <div class="nav-cta">
+      <a href="tel:+14253489914" class="nav-phone">(425) 348-9914</a>
+      <a href="#final-cta" class="btn-gold" style="padding:10px 20px;font-size:1.25rem;">Free Consultation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-eyebrow">
+          <span class="hero-badge">Everett, WA</span>
+          <span class="hero-location">Serving Snohomish County</span>
+        </div>
+        <h1>Your Parent Deserves to <em>Stay Home Safely</em> — Without You Burning Out</h1>
+        <p class="hero-sub">
+          Professional, compassionate in-home care so your loved one can <strong>age in place with dignity</strong> — while you finally get the peace of mind you've been desperately missing.
+        </p>
+        <div class="trust-row">
+          <div class="trust-item"><span class="trust-dot"></span> ⭐⭐⭐⭐⭐ 4.9/5 Rating</div>
+          <div class="trust-item"><span class="trust-dot"></span> Screened & Vetted Caregivers</div>
+          <div class="trust-item"><span class="trust-dot"></span> Serving Families for 30+ Years Nationally</div>
+        </div>
+      </div>
+      <div class="hero-right-col">
+      <div class="hero-image-wrap">
+        <img src="Visiting-Angels-Home-Care-Everett-WA.jpg" alt="Caregiver with senior at home" style="width:100%; height:440px; object-fit:cover; display:block;">
+        <div class="hero-overlay-card">
+          <div class="hero-stars">★★★★★</div>
+          <div class="stat">500+</div>
+          <div class="stat-label">Families Served in Snohomish County</div>
+        </div>
+      </div>
+      <div class="hero-cta-group">
+        <a href="#final-cta" class="btn-gold" style="text-align:center;display:block;">📋 Schedule Your Free In-Home Consultation</a>
+        <div class="hero-cta-note">No obligation. No contracts. Care can start within days.</div>
+        <div class="hero-cta-note">You choose your caregiver — we find the perfect match.</div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS BAND ─── -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-num">30+</span>
+        <div class="stat-desc">Years of Senior Care Experience</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">500+</span>
+        <div class="stat-desc">Families Helped Locally</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">4.9★</span>
+        <div class="stat-desc">Average Family Satisfaction Rating</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">72hrs</span>
+        <div class="stat-desc">Average Time to Start Care</div>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100%</span>
+        <div class="stat-desc">Screened & Background-Checked Caregivers</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SOCIAL PROOF ─── -->
+<section class="proof-section" id="proof">
+  <div class="container">
+    <div class="proof-intro">
+      <span class="section-label">Real Families. Real Results.</span>
+      <h2 class="section-title">What Everett Families Are Saying<br>After Getting Help</h2>
+      <p class="section-sub">These aren't cherry-picked quotes — these are the outcomes families experience when they finally stop trying to do everything alone.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <span class="proof-result">✓ Mom stayed in her home</span>
+        <p class="proof-quote">I was driving 45 minutes each way, every day, while working full-time and raising kids. Within a week of starting care, Mom had someone with her who she actually loves. For the first time in two years, I slept through the night.</p>
+        <div class="proof-author">
+          <div class="proof-avatar" style="background: linear-gradient(135deg,#2C6EB7,#74CBC9);">KR</div>
+          <div>
+            <div class="proof-name">Karen R.</div>
+            <div class="proof-role">Daughter, Mukilteo, WA</div>
+            <div class="proof-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <span class="proof-result">✓ Dad kept his independence</span>
+        <p class="proof-quote">Dad was falling. He refused assisted living. Visiting Angels matched him with a caregiver who plays chess with him — he calls her his "Wednesday friend." He hasn't had a fall in 4 months and is more alert than he's been in years.</p>
+        <div class="proof-author">
+          <div class="proof-avatar" style="background: linear-gradient(135deg,#193E6E,#2C6EB7);">MT</div>
+          <div>
+            <div class="proof-name">Mark T.</div>
+            <div class="proof-role">Son, Everett, WA</div>
+            <div class="proof-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <span class="proof-result">✓ Caregiver burnout ended</span>
+        <p class="proof-quote">I was caring for my mother alone for 3 years. My marriage was suffering. My health was suffering. Getting respite care through Visiting Angels gave me back my life — and honestly, my mom gets better care than I could ever give her alone.</p>
+        <div class="proof-author">
+          <div class="proof-avatar" style="background: linear-gradient(135deg,#74CBC9,#2C6EB7);">SL</div>
+          <div>
+            <div class="proof-name">Sandra L.</div>
+            <div class="proof-role">Daughter & Family Caregiver, Marysville, WA</div>
+            <div class="proof-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="proof-visual-row" style="margin-top:24px;">
+      <div class="proof-visual-card">
+        <div class="proof-visual-icon">📋</div>
+        <div class="proof-visual-text">
+          <strong>Every Care Plan is Personalized</strong>
+          <span>No two seniors are the same. Your loved one's plan is built around their specific needs, routines, and personality — not a generic template.</span>
+        </div>
+      </div>
+      <div class="proof-visual-card">
+        <div class="proof-visual-icon">🤝</div>
+        <div class="proof-visual-text">
+          <strong>You Choose Your Caregiver</strong>
+          <span>We present compatible matches and you decide. If it's not the right fit, we find another — no pressure, no penalty.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BENEFITS ─── -->
+<section class="benefits-section" id="benefits">
+  <div class="container">
+    <div class="benefits-intro">
+      <span class="section-label">What You Actually Get</span>
+      <h2 class="section-title">Six Ways Care Changes Everything<br>For Your Parent and For You</h2>
+      <p class="section-sub">These aren't features. They're the real transformations families in Everett experience when the right support is finally in place.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <span class="benefit-icon">🏠</span>
+        <div class="benefit-title">Your Parent Stays in the Home They Love</div>
+        <p class="benefit-desc">No facility. No uprooting. No losing the bedroom, the garden, the neighborhood they've lived in for decades. Aging in place means they keep their identity and independence.</p>
+        <div class="benefit-outcome">→ Dignity preserved, comfort maintained</div>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">😮‍💨</span>
+        <div class="benefit-title">You Stop Being the Only One Responsible</div>
+        <p class="benefit-desc">You finally have a trained professional sharing the load. No more guilt when you can't be there. No more panic when something changes. Someone reliable shows up, every time.</p>
+        <div class="benefit-outcome">→ Your life comes back into balance</div>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">💛</span>
+        <div class="benefit-title">Loneliness and Isolation End</div>
+        <p class="benefit-desc">Caregivers don't just assist — they become genuine companions. Conversations, activities, outings. Studies show social connection directly slows cognitive decline.</p>
+        <div class="benefit-outcome">→ Parent is happier, healthier, more engaged</div>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">🛡️</span>
+        <div class="benefit-title">Safety Without Surveillance</div>
+        <p class="benefit-desc">Professional monitoring for fall risks, medication reminders, and health changes — without making your parent feel like they're being watched or have lost their autonomy.</p>
+        <div class="benefit-outcome">→ Accidents reduced, early issues caught</div>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">🧠</span>
+        <div class="benefit-title">Specialized Dementia & Memory Care</div>
+        <p class="benefit-desc">Trained in dementia-specific approaches — behavioral understanding, calm redirection, routine-building. Your loved one isn't managed. They're understood.</p>
+        <div class="benefit-outcome">→ Calmer days, less distress for everyone</div>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">🕐</span>
+        <div class="benefit-title">Flexible Hours That Match Real Life</div>
+        <p class="benefit-desc">Hourly visits, overnight care, weekends, holidays, 24/7 live-in support — whatever your family actually needs, not a rigid package that sort of fits.</p>
+        <div class="benefit-outcome">→ Care that adapts as needs evolve</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="hiw-section" id="how">
+  <div class="container">
+    <div class="hiw-intro">
+      <span class="section-label">Getting Started Is Easier Than You Think</span>
+      <h2 class="section-title">From First Call to Care Beginning<br>In As Few as 72 Hours</h2>
+      <p class="section-sub">Four simple steps. No complicated intake process. No waiting weeks. Just relief, starting now.</p>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step">
+        <div class="hiw-num">1</div>
+        <div class="hiw-step-title">Schedule Your Free In-Home Consultation</div>
+        <p class="hiw-step-desc">A local care coordinator visits your home at no cost. No sales pressure — just a real conversation about your loved one's needs.</p>
+        <div class="hiw-time">⏱ Takes 45–60 minutes</div>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">2</div>
+        <div class="hiw-step-title">Receive a Personalized Care Plan</div>
+        <p class="hiw-step-desc">We build a specific plan around your parent's routines, preferences, health needs, and personality. Not a template — a plan made for them.</p>
+        <div class="hiw-time">⏱ Delivered same day or next day</div>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">3</div>
+        <div class="hiw-step-title">Meet & Choose Your Caregiver</div>
+        <p class="hiw-step-desc">We present compatible, vetted caregivers. You decide who enters your home. If it's not working, we replace them — no questions asked.</p>
+        <div class="hiw-time">⏱ Within 24–48 hours</div>
+      </div>
+      <div class="hiw-step">
+        <div class="hiw-num">4</div>
+        <div class="hiw-step-title">Care Begins — With Ongoing Support</div>
+        <p class="hiw-step-desc">Your loved one receives care immediately. We monitor satisfaction, adjust the plan as needs evolve, and stay in contact with your family throughout.</p>
+        <div class="hiw-time">⏱ Often within 72 hours total</div>
+      </div>
+    </div>
+    <div class="hiw-cta">
+      <a href="#final-cta" class="btn-gold">Start Step 1 — Schedule My Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RISK REVERSAL ─── -->
+<section class="risk-section">
+  <div class="container">
+    <div class="risk-inner">
+      <div>
+        <span class="section-label" style="color:var(--accent);">Our Promise to You</span>
+        <h2 class="risk-title">You Take <span>Zero Risk</span> in Reaching Out to Us</h2>
+        <p class="risk-sub">We understand that inviting someone into your parent's home is one of the most significant decisions your family will make. That's why we've removed every possible barrier and risk — so you can move forward with total confidence.</p>
+        <a href="#final-cta" class="btn-gold">Claim Your Free Consultation →</a>
+        <div class="trust-badges">
+          <span class="trust-badge">🔒 HIPAA Compliant</span>
+          <span class="trust-badge">✅ Fully Insured</span>
+          <span class="trust-badge">🏆 Nationally Recognized</span>
+          <span class="trust-badge">📋 Licensed in WA State</span>
+          <span class="trust-badge">⭐ 4.9/5 Rating</span>
+        </div>
+      </div>
+      <div class="guarantee-box">
+        <h4>🛡️ The Visiting Angels Guarantee</h4>
+        <div class="guarantee-item"><span class="guarantee-check">✓</span> Free in-home consultation — absolutely no obligation to proceed</div>
+        <div class="guarantee-item"><span class="guarantee-check">✓</span> No long-term contracts — care is month-to-month, cancel anytime</div>
+        <div class="guarantee-item"><span class="guarantee-check">✓</span> Caregiver replacement guarantee — request a new match at any time, no penalty</div>
+        <div class="guarantee-item"><span class="guarantee-check">✓</span> Ongoing satisfaction monitoring — we check in regularly to ensure care is working</div>
+        <div class="guarantee-item"><span class="guarantee-check">✓</span> Flexible scheduling — start with a few hours, scale up as needs change</div>
+        <div class="guarantee-item"><span class="guarantee-check">✓</span> 100% background-checked caregivers — every hire is screened before they meet your family</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="faq-intro">
+      <span class="section-label">Common Questions</span>
+      <h2 class="section-title">Answers to What Families Ask Us Most</h2>
+      <p class="section-sub">If you're still on the fence, these answers address the most common hesitations we hear from families just like yours.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">How much does in-home care cost in Everett, WA?</div>
+        <p class="faq-a">Costs vary based on the level of care and hours needed. Many families are surprised to find that in-home care is significantly more affordable than assisted living facilities. We provide a full breakdown during your free consultation — no hidden fees, no surprises. Some long-term care insurance policies and VA benefits also apply.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How quickly can care actually start?</div>
+        <p class="faq-a">In most cases, care can begin within 48–72 hours of your initial consultation. If your situation is urgent, tell us — we have a fast-start process for families who need immediate help. We don't make you wait weeks to get support.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if my parent refuses help or doesn't want a caregiver?</div>
+        <p class="faq-a">This is the most common concern we hear. Our care coordinators are experienced in this exact situation. We'll discuss strategies during your consultation and often recommend starting with just a few hours per week in a very low-pressure way. Many seniors who initially resisted now look forward to their caregiver's visits.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I trust a caregiver in my parent's home?</div>
+        <p class="faq-a">Every caregiver goes through extensive criminal background checks, reference verification, and skills assessment before they're placed. You also meet and approve your caregiver before care begins. And you can request a replacement caregiver at any time — no explanation needed.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you provide dementia or Alzheimer's care?</div>
+        <p class="faq-a">Yes. We have caregivers specifically trained in dementia and memory care. This includes behavioral approaches, routine-building, safe redirection, and compassionate communication. We also offer our SELECT program to help match seniors with cognitive conditions to the most compatible caregiver.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Is there a long-term commitment or contract required?</div>
+        <p class="faq-a">No. Care is provided on a flexible, month-to-month basis. You can increase, decrease, or stop services as your family's needs change. There are no cancellation penalties. This flexibility is something families consistently tell us they value most.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta" id="final-cta">
+  <div class="container">
+    <div class="final-cta-inner">
+      <span class="section-label">Take the First Step Today</span>
+      <h2>Your Parent Can Stay Home,<br>Safe and Happy.<br><em>You Can Stop Running on Empty.</em></h2>
+      <p class="final-cta-sub">
+        Hundreds of Everett families have made this call and said it was the best decision they ever made. All it takes is one free, no-pressure conversation to find out if we're the right fit.
+      </p>
+      <a href="tel:+14253489914" class="btn-gold" style="font-size:1.2rem; padding:22px 52px; margin-bottom:16px; display:inline-block;">📞 Call Us Now: (425) 348-9914</a>
+      <br>
+      <a href="#" class="btn-outline" style="margin-top:12px;">Or Schedule Online →</a>
+      <div class="final-cta-extras">
+        <div class="final-cta-extra">Free In-Home Consultation</div>
+        <div class="final-cta-extra">No Long-Term Contracts</div>
+        <div class="final-cta-extra">You Choose Your Caregiver</div>
+        <div class="final-cta-extra">Care Can Begin in 72 Hours</div>
+      </div>
+      <p style="margin-top:28px; font-size:0.85rem; color:var(--text-muted);">⭐⭐⭐⭐⭐ Trusted by 500+ Families in Snohomish County &nbsp;|&nbsp; Licensed, Insured & Nationally Recognized</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p><strong>Visiting Angels of Everett</strong> | Serving Everett, Marysville, Mukilteo, Lynnwood & All of Snohomish County, WA</p>
+    <p style="margin-top:8px;">
+      <a href="tel:+14253489914">(425) 348-9914</a> &nbsp;|&nbsp;
+      <a href="#">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="#">Careers</a>
+    </p>
+    <p style="margin-top:12px; font-size:0.8rem;">© 2026 Visiting Angels of Everett. All rights reserved. Non-medical in-home care services.</p>
+  </div>
+</footer>
+
+</body>
+</html>
